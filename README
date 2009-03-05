@@ -1,0 +1,378 @@
+liquidsoap
+------------------------------------------
+Liquidsoap is the audio stream generator of the Savonet project, notably 
+used for generating the stream of netradios. It has tons of features, 
+it's free and it's open-source! Liquidsoap lets you to describe your 
+streams in a powerful and flexible way. Allowing arbitrarily deep-nested 
+composition of streams, it gives you more power than you need for 
+creating an original netradio. But liquidsoap is still very light and 
+easy to use, in the Unix tradition of simple strong components working 
+together.
+
+Runtime requirements:
+  cygwin-1.5.25-15
+  faac
+  faad
+  flac
+  ladspa-*
+  libao2-0.8.8-3
+  libfaac0-1.26-1
+  libgavl1-1.1.0-1
+  libGL1-7.2-2
+  libglut3-2.4.0-1
+  libjack0-0.116.2-1
+  libmad0-0.15.1b-5
+  libmp3lame0-3.98.2-1
+  libogg0-1.1.3-1
+  libpcre0-7.8-1
+  libportaudio2-19.20071207-1
+  libsamplerate0-0.1.7-1
+  libSDL1.2_0-1.2.13-3
+  libSDL_ttf2.0_0-2.0.9-2
+  libshout3-2.2.2-1
+  libsoundtouch0-1.3.1-1
+  libspeex1-1.2rc1-1
+  libtag_c0-1.5-2
+  libtheora0-1.0-1
+  libvorbis0-1.2.0-2
+  libvorbisenc2-1.2.0-2
+  libvorbisfile3-1.2.0-2
+  mplayer
+  normalize
+  sox
+  wget
+(liguidsoap)
+  python-2.5.4-1
+  python-gobject2-2.16.1-1
+  python-gtk2-2.14.0-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  autoconf2.5-2.63-1
+  binutils-20080624-2
+  cygport-0.4.3-1
+  gawk-3.1.6-1
+  gcc-core-3.4.4-3
+  make-3.81-1
+  ocaml-3.10.2-1
+  ocaml-ao-0.1.9-1
+  ocaml-bjack-0.1.2-1
+  ocaml-camomile-0.7.1-2
+  ocaml-dtools-0.1.6-1
+  ocaml-duppy-0.2.0-1
+  ocaml-faac-0.1.1-1
+  ocaml-faad-0.1.2-1
+  ocaml-findlib-1.2.2-1
+  ocaml-gavl-0.1.0-1
+  ocaml-ladspa-0.1.1-1
+  ocaml-lame-0.2.3-1
+  ocaml-lastfm-0.1.3-1
+  ocaml-mad-0.3.5-1
+  ocaml-ogg-0.3.0-1
+  ocaml-pcre-5.12.2-1
+  ocaml-portaudio-0.1.2-1
+  ocaml-samplerate-0.1.0-1
+  ocaml-sdl-0.7.2-2
+  ocaml-shout-0.2.6-1
+  ocaml-soundtouch-0.1.4-1
+  ocaml-speex-0.1.0-1
+  ocaml-taglib-0.1.2-1
+  ocaml-theora-0.1.0-1
+  ocaml-vorbis-0.5.0-1
+  ocaml-xmlplaylist-0.1.1-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://savonet.sourceforge.net/
+
+Canonical download:
+  http://downloads.sourceforge.net/savonet/
+
+-------------------------------------------
+
+Build instructions:
+  unpack liquidsoap-0.9.0-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./liquidsoap-0.9.0-X.cygport all
+
+This will create:
+  /usr/src/liquidsoap-0.9.0-X-src.tar.bz2
+  /usr/src/liquidsoap-0.9.0-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /etc/liquidsoap/radio.liq.example
+  /etc/logrotate.d/liquidsoap
+  /usr/bin/liquidsoap.exe
+  /usr/lib/liquidsoap/0.9.0/utils.liq
+  /usr/lib/liquidsoap/liquidtts
+  /usr/share/doc/liquidsoap-0.9.0/COPYING
+  /usr/share/doc/liquidsoap-0.9.0/Changes
+  /usr/share/doc/liquidsoap-0.9.0/INSTALL
+  /usr/share/doc/liquidsoap-0.9.0/README
+  /usr/share/doc/liquidsoap-0.9.0/examples/README
+  /usr/share/doc/liquidsoap-0.9.0/examples/fallible.liq
+  /usr/share/doc/liquidsoap-0.9.0/examples/geek.liq
+  /usr/share/doc/liquidsoap-0.9.0/examples/radio.liq
+  /usr/share/doc/liquidsoap-0.9.0/examples/transitions.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/advanced.html
+  /usr/share/doc/liquidsoap-0.9.0/html/blank.html
+  /usr/share/doc/liquidsoap-0.9.0/html/bubble.html
+  /usr/share/doc/liquidsoap-0.9.0/html/build.html
+  /usr/share/doc/liquidsoap-0.9.0/html/complete_case.html
+  /usr/share/doc/liquidsoap-0.9.0/html/concepts.html
+  /usr/share/doc/liquidsoap-0.9.0/html/cookbook.html
+  /usr/share/doc/liquidsoap-0.9.0/html/documentation.html
+  /usr/share/doc/liquidsoap-0.9.0/html/dolebrai.html
+  /usr/share/doc/liquidsoap-0.9.0/html/external_decoders.html
+  /usr/share/doc/liquidsoap-0.9.0/html/external_encoders.html
+  /usr/share/doc/liquidsoap-0.9.0/html/external_streams.html
+  /usr/share/doc/liquidsoap-0.9.0/html/frequence3.html
+  /usr/share/doc/liquidsoap-0.9.0/html/geekradio.html
+  /usr/share/doc/liquidsoap-0.9.0/html/help.html
+  /usr/share/doc/liquidsoap-0.9.0/html/homepage.css
+  /usr/share/doc/liquidsoap-0.9.0/html/http_vs_harbor.html
+  /usr/share/doc/liquidsoap-0.9.0/html/images/basic-radio-graph.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/block_blue.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/block_magenta.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/block_red.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/fleche123.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/play/block_play_arrow.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/play/block_play_bg.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/play/block_play_cl.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/play/block_play_cr.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/blocks/play/block_play_text.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_blue_bg.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_blue_say.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_blue_top.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_green_bg.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_green_hear.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_green_top.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_red_bg.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_red_see.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/boxes/box_red_top.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/design/background.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/design/background_page.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/design/logo.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/grab.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/16/audio.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/32/audio.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/48/deb.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/48/exec.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/48/package.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/48/sourcecode.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/icons/48/subversion.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/liqgraph.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/schema-webradio-inkscape.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/stream.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_API.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_about.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_developers.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_docs.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_install.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_red_bg.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_red_l.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_red_r.png
+  /usr/share/doc/liquidsoap-0.9.0/html/images/tabs/tab_snippets.png
+  /usr/share/doc/liquidsoap-0.9.0/html/index.html
+  /usr/share/doc/liquidsoap-0.9.0/html/kube.html
+  /usr/share/doc/liquidsoap-0.9.0/html/language.html
+  /usr/share/doc/liquidsoap-0.9.0/html/links.txt
+  /usr/share/doc/liquidsoap-0.9.0/html/metadata.html
+  /usr/share/doc/liquidsoap-0.9.0/html/multichannel.html
+  /usr/share/doc/liquidsoap-0.9.0/html/optimization.html
+  /usr/share/doc/liquidsoap-0.9.0/html/queues.html
+  /usr/share/doc/liquidsoap-0.9.0/html/quick_start.html
+  /usr/share/doc/liquidsoap-0.9.0/html/radio-nova.html
+  /usr/share/doc/liquidsoap-0.9.0/html/radiopi.html
+  /usr/share/doc/liquidsoap-0.9.0/html/reference.html
+  /usr/share/doc/liquidsoap-0.9.0/html/replay_gain.html
+  /usr/share/doc/liquidsoap-0.9.0/html/script_loading.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_output.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_output.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_output_unbuffered.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_output_unbuffered.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_unbuffered.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_unbuffered.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_unbuffered_debug.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/alsa_unbuffered_debug.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/bubble.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/bubble.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/bubble_full.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/bubble_full.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/complete_case.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/complete_case.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/crossfade.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/crossfade.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/dolebrai.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/dolebrai.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/dolutils.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/dolutils.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/faad_decoder.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/faad_decoder.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/fallback_basic.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/fallback_basic.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/flac_decoder.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/flac_decoder.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/flac_resolver.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/flac_resolver.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor_auth.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor_auth.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor_source.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/harbor_source.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/hour_jingle.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/hour_jingle.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/http_source.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/http_source.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/icecast.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/icecast.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/index.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/index.txt
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/input_mplayer.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/input_mplayer.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/jack_multichannel.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/jack_multichannel.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_dummy_example.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_dummy_example.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_fun_def.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_fun_def.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_func_type.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_func_type.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_partial_application.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_partial_application.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_rewrite.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lang_rewrite.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lastfm.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lastfm.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lastfm_uri.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/lastfm_uri.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/mplayer_decoder.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/mplayer_decoder.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/on_blank.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/on_blank.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out_playlist.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out_playlist.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out_smartcross.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/out_smartcross.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-aplay.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-aplay.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-icecast-flac.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-icecast-flac.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-icecast-lame.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-icecast-lame.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-shoutcast-lame.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/output-shoutcast-lame.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/play_every_xx.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/play_every_xx.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/playlist.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/playlist.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/playlist_dynamic_request.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/playlist_dynamic_request.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/radio-nova.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/radio-nova.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/radio_basic.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/radio_basic.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/recipe_base.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/recipe_base.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/recipe_out.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/recipe_out.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygain.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygain.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygain.pl
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygainmetadata.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygainmetadata.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygainproto.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/replaygainproto.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/rewrite_metadata.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/rewrite_metadata.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/run_alsa_input.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/run_alsa_input.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/schedulers.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/schedulers.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/scripted_dynamic_request.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/scripted_dynamic_request.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/shoutcast.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/shoutcast.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/shoutcast.sh
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/simple_crossfade.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/simple_crossfade.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/single.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/single.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/skip_blank.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/skip_blank.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/smart_crossfade.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/smart_crossfade.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/smooth_add.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/smooth_add.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/strip_blank.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/strip_blank.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/switch_generic.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/switch_generic.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/track_sensitive_fallback.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/track_sensitive_fallback.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/transcoding.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/transcoding.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_kube-dev.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_kube-dev.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_kube.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_kube.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_radiopi.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/users_radiopi.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/video_static.html
+  /usr/share/doc/liquidsoap-0.9.0/html/scripts/video_static.liq
+  /usr/share/doc/liquidsoap-0.9.0/html/settings.html
+  /usr/share/doc/liquidsoap-0.9.0/html/shoutcast.html
+  /usr/share/doc/liquidsoap-0.9.0/html/smartcrossfade.html
+  /usr/share/doc/liquidsoap-0.9.0/html/style.css
+  /usr/share/doc/liquidsoap-0.9.0/html/video-static.html
+  /usr/share/doc/liquidsoap-0.9.0/html/video.html
+  /usr/share/man/man1/liquidsoap.1.gz
+  /var/log/liquidsoap/.keep-liquidsoap
+  /var/run/liquidsoap/.keep-liquidsoap
+
+(liguidsoap)
+  /usr/bin/liguidsoap
+  /usr/lib/python2.5/site-packages/liquidsoap/client.py
+  /usr/lib/python2.5/site-packages/liquidsoap/client.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/client.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/editable.py
+  /usr/lib/python2.5/site-packages/liquidsoap/editable.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/editable.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/liguidsoap.py
+  /usr/lib/python2.5/site-packages/liquidsoap/liguidsoap.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/liguidsoap.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/mix.py
+  /usr/lib/python2.5/site-packages/liquidsoap/mix.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/mix.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/output.py
+  /usr/lib/python2.5/site-packages/liquidsoap/output.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/output.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/playlist.py
+  /usr/lib/python2.5/site-packages/liquidsoap/playlist.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/playlist.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/queue.py
+  /usr/lib/python2.5/site-packages/liquidsoap/queue.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/queue.pyo
+  /usr/lib/python2.5/site-packages/liquidsoap/widgets.py
+  /usr/lib/python2.5/site-packages/liquidsoap/widgets.pyc
+  /usr/lib/python2.5/site-packages/liquidsoap/widgets.pyo
+  /usr/share/man/man1/liguidsoap.1.gz
+
+------------------
+
+Port Notes:
+
+----- version 0.9.0-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

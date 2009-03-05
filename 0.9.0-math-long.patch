@@ -1,0 +1,24 @@
+--- origsrc/liquidsoap-0.9.0/src/stream/rgb_c.c	2009-03-01 08:28:47.000000000 -0600
++++ src/liquidsoap-0.9.0/src/stream/rgb_c.c	2009-03-03 15:32:50.836000000 -0600
+@@ -612,10 +612,10 @@ CAMLprim value caml_rgb_bilinear_scale(v
+     for (i = ox; i < dst.width - ox; i++)
+     {
+       dx = (i - ox) / ax;
+-      i2 = floorl(dx);
++      i2 = floor(dx);
+       dx -= i2;
+       dy = (j - oy) / ay;
+-      j2 = floorl(dy);
++      j2 = floor(dy);
+       dy -= j2;
+       for (c = 0; c < Rgb_elems_per_pixel; c++)
+         Color(&dst, c, i, j) =
+@@ -940,7 +940,7 @@ CAMLprim value caml_rgb_disk_opacity(val
+   for (j = 0; j < rgb.height; j++)
+     for (i = 0; i < rgb.width; i++)
+     {
+-      r = sqrtl((i - x) * (i - x) + (j - y) * (j - y));
++      r = sqrt((i - x) * (i - x) + (j - y) * (j - y));
+       if (r > radius)
+         Alpha(&rgb, i, j) = 0;
+     }

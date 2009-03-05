@@ -1,0 +1,34 @@
+inherit python ocaml
+
+DESCRIPTION="OCaml daemon tools"
+HOMEPAGE="http://savonet.sourceforge.net/wiki/OCamlLibs"
+SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
+PATCH_URI="0.9.0-oss.patch
+           0.9.0-math-long.patch"
+
+PKG_NAMES="${PN} liguidsoap"
+liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
+                     usr/share/doc/ usr/share/man/man1/liquidsoap.* var/"
+liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
+                     usr/share/man/man1/liguidsoap.*"
+
+DIFF_EXCLUDES="configure.ml liq_sockets.ml"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	autoconf -f || error "autoconf failed"
+	cygconf --with-group=`id -ng` --with-user=`id -nu`
+	cygmake -j1
+}
+
+USE_DESTDIR=no
+
+src_install() {
+	cd ${B}
+	cyginstall -j1
+
+	python_optimize
+
+	keepdir /var/{log,run}/liquidsoap
+}
