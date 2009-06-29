@@ -1,5 +1,5 @@
 category: Audio Net
-requires: cygwin faac faad flac ladspa-sdk libao2 libfaac0 libgavl1 libGL1 libglut3 libjack0 libmad0 libmp3lame0 libogg0 libpcre0 libportaudio2 libsamplerate0 libSDL1.2_0 libSDL_ttf2.0_0 libshout3 libsoundtouch0 libspeex1 libtag_c0 libtheora0 libvorbis0 libvorbisenc2 libvorbisfile3 mplayer normalize sox wget
+requires: faac faad flac ladspa-sdk libao2 libfaac0 libgavl1 libGL1 libglut3 libjack0 libmad0 libmp3lame0 libogg0 libpcre0 libportaudio2 libsamplerate0 libSDL1.2_0 libSDL_ttf2.0_0 libshout3 libsoundtouch0 libspeex1 libtag_c0 libtheora0 libvorbis0 libvorbisenc2 libvorbisfile3 mplayer normalize sox wget
 sdesc: "Audio stream generator"
 ldesc: "Liquidsoap is the audio stream generator of the Savonet project, 
 notably used for generating the stream of netradios. It has tons of 
