@@ -1,0 +1,22 @@
+--- origsrc/liquidsoap-0.9.2/configure.ac	2009-10-29 23:41:25.000000000 -0500
++++ src/liquidsoap-0.9.2/configure.ac	2010-02-15 16:01:21.459082100 -0600
+@@ -1617,17 +1617,14 @@ if test -z "$with_camlimages_dir" ; then
+     else
+         W_CAMLIMAGES=yes
+         AC_MSG_RESULT(ok)
+-        # This does not work for now because ci_gif cannot be linked with ocamlSDL
+-#        ocamlcflags="$ocamlcflags -package camlimages"
+-        ocamlcflags="$ocamlcflags -I +camlimages"
+-        ocamllflags="$ocamllflags ci_core.$cma ci_bmp.$cma ci_jpeg.$cma ci_png.$cma ci_ppm.$cma ci_ps.$cma ci_tiff.$cma ci_xpm.$cma"
++        ocamlcflags="$ocamlcflags -package camlimages"
+         requires="$requires camlimages"
+     fi
+ else
+     echo $with_camlimages_dir | grep ^/ > /dev/null 2>&1 \
+         || with_camlimages_dir=$PWD/$with_camlimages_dir
+     ocamlcflags="$ocamlcflags -I $with_camlimages_dir"
+-    ocamllflags="$ocamllflags ci_core.$cma ci_bmp.$cma ci_jpeg.$cma ci_png.$cma ci_ppm.$cma ci_ps.$cma ci_tiff.$cma ci_xpm.$cma"
++    ocamllflags="$ocamllflags camlimages.$cma"
+     requires="$requires camlimages"
+     W_CAMLIMAGES=yes
+     AC_MSG_RESULT(ok)

@@ -1,10 +1,9 @@
 inherit python ocaml
 
 DESCRIPTION="OCaml daemon tools"
-HOMEPAGE="http://savonet.sourceforge.net/wiki/OCamlLibs"
+HOMEPAGE="http://savonet.sourceforge.net/"
 SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
-PATCH_URI="0.9.0-oss.patch
-           0.9.0-math-long.patch"
+PATCH_URI="0.9.2-camlimages3.patch"
 
 PKG_NAMES="${PN} liguidsoap"
 liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
@@ -12,13 +11,15 @@ liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
 liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
                      usr/share/man/man1/liguidsoap.*"
 
-DIFF_EXCLUDES="configure.ml liq_sockets.ml"
+DIFF_EXCLUDES="configure.ml liq_sockets.ml SVN.ml"
 
 src_compile() {
+	cd ${S}
+	autoconf -f || error "autoconf failed"
 	lndirs
 	cd ${B}
-	autoconf -f || error "autoconf failed"
-	cygconf --with-group=`id -ng` --with-user=`id -nu`
+	# FIXME: sdl_out fails to compile, should be fixed in 0.9.3
+	cygconf --disable-sdl --with-group=`id -ng` --with-user=`id -nu`
 	cygmake -j1
 }
 
@@ -26,7 +27,7 @@ USE_DESTDIR=no
 
 src_install() {
 	cd ${B}
-	cyginstall -j1
+	cyginstall -j1 DISTDIR=${PN}
 
 	python_optimize
 
