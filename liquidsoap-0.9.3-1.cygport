@@ -3,7 +3,11 @@ inherit python ocaml
 DESCRIPTION="OCaml daemon tools"
 HOMEPAGE="http://savonet.sourceforge.net/"
 SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
-PATCH_URI="0.9.2-camlimages3.patch"
+
+PATCH_URI="
+	0.9.2-camlimages3.patch
+	0.9.3-byteswap.patch
+"
 
 PKG_NAMES="${PN} liguidsoap"
 liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
@@ -11,15 +15,14 @@ liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
 liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
                      usr/share/man/man1/liguidsoap.*"
 
-DIFF_EXCLUDES="configure.ml liq_sockets.ml SVN.ml"
+DIFF_EXCLUDES="configure configure.ml liq_sockets.ml SVN.ml"
 
 src_compile() {
 	cd ${S}
 	autoconf -f || error "autoconf failed"
 	lndirs
 	cd ${B}
-	# FIXME: sdl_out fails to compile, should be fixed in 0.9.3
-	cygconf --disable-sdl --with-group=`id -ng` --with-user=`id -nu`
+	cygconf --with-group=`id -ng` --with-user=`id -nu`
 	cygmake -j1
 }
 
