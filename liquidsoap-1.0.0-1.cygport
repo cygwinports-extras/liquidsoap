@@ -4,9 +4,39 @@ DESCRIPTION="OCaml daemon tools"
 HOMEPAGE="http://savonet.sourceforge.net/"
 SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
 
-PATCH_URI="
-	0.9.2-camlimages3.patch
-	0.9.3-byteswap.patch
+DEPEND="ocaml(ao)
+	ocaml(camlimages)
+	ocaml(camomile)
+	ocaml(cry)
+	ocaml(dtools)
+	ocaml(duppy)
+	ocaml(faad)
+	ocaml(flac)
+	ocaml(gavl)
+	ocaml(gd)
+	ocaml(gstreamer)
+	ocaml(ladspa)
+	ocaml(lame)
+	ocaml(lastfm)
+	ocaml(lo)
+	ocaml(mad)
+	ocaml(magic)
+	ocaml(mm)
+	ocaml(ogg)
+	ocaml(pcre)
+	ocaml(portaudio)
+	ocaml(pulseaudio)
+	ocaml(samplerate)
+	ocaml(schroedinger)
+	ocaml(sdl)
+	ocaml(soundtouch)
+	ocaml(speex)
+	ocaml(taglib)
+	ocaml(theora)
+	ocaml(voaacenc)
+	ocaml(vorbis)
+	ocaml(xmlplaylist)
+	ocaml(yojson)
 "
 
 PKG_NAMES="${PN} liguidsoap"
@@ -15,11 +45,9 @@ liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
 liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
                      usr/share/man/man1/liguidsoap.*"
 
-DIFF_EXCLUDES="configure configure.ml liq_sockets.ml SVN.ml"
+DIFF_EXCLUDES="configure configure.ml harbor*.ml liq_sockets.ml SVN.ml"
 
 src_compile() {
-	cd ${S}
-	autoconf -f || error "autoconf failed"
 	lndirs
 	cd ${B}
 	cygconf --with-group=`id -ng` --with-user=`id -nu`
