@@ -1,8 +1,21 @@
 inherit python ocaml
 
-DESCRIPTION="OCaml daemon tools"
+CATEGORY="Audio Net"
+SUMMARY="Audio stream generator"
+DESCRIPTION="Liquidsoap is the audio stream generator of the Savonet project,
+notably used for generating the stream of netradios. It has tons of
+features, it's free and it's open-source! Liquidsoap lets you to
+describe your streams in a powerful and flexible way. Allowing
+arbitrarily deep-nested composition of streams, it gives you more power
+than you need for creating an original netradio. But liquidsoap is still
+very light and easy to use, in the Unix tradition of simple strong
+components working together."
 HOMEPAGE="http://savonet.sourceforge.net/"
 SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
+
+REQUIRES="faad flac libnotify mplayer musepack wget xosd"
+
+RESTRICT="debuginfo"
 
 DEPEND="ocaml(ao)
 	ocaml(camlimages)
@@ -42,6 +55,8 @@ DEPEND="ocaml(ao)
 PKG_NAMES="${PN} liguidsoap"
 liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
                      usr/share/doc/ usr/share/man/man1/liquidsoap.* var/"
+liguidsoap_SUMMARY="GUI for the Liquidsoap audio stream generator"
+liguidsoap_REQUIRES=${PN}
 liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
                      usr/share/man/man1/liguidsoap.*"
 
