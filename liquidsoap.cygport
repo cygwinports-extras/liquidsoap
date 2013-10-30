@@ -1,20 +1,20 @@
 inherit python ocaml
 
 NAME="liquidsoap"
-VERSION=1.0.1
-RELEASE=3
+VERSION=1.1.1
+RELEASE=1
 CATEGORY="Audio Net"
 SUMMARY="Audio stream generator"
 DESCRIPTION="Liquidsoap is the audio stream generator of the Savonet project,
-notably used for generating the stream of netradios. It has tons of
-features, it's free and it's open-source! Liquidsoap lets you to
-describe your streams in a powerful and flexible way. Allowing
-arbitrarily deep-nested composition of streams, it gives you more power
-than you need for creating an original netradio. But liquidsoap is still
-very light and easy to use, in the Unix tradition of simple strong
-components working together."
+notably used for generating the stream of netradios. It has tons of features,
+it is free and open-source! Liquidsoap lets you to describe your streams in a
+powerful and flexible way. Allowing arbitrarily deep-nested composition of
+streams, it gives you more power than you need for creating an original
+netradio. But liquidsoap is still very light and easy to use, in the Unix
+tradition of simple strong components working together."
 HOMEPAGE="http://savonet.sourceforge.net/"
-SRC_URI="mirror://sourceforge/savonet/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/savonet/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.1.1-static.patch"
 
 REQUIRES="faad flac libnotify mplayer musepack wget xosd"
 
@@ -39,12 +39,14 @@ DEPEND="ocaml(ao)
 	ocaml(magic)
 	ocaml(mm)
 	ocaml(ogg)
+	ocaml(opus)
 	ocaml(pcre)
 	ocaml(portaudio)
 	ocaml(pulseaudio)
 	ocaml(samplerate)
 	ocaml(schroedinger)
 	ocaml(sdl)
+	ocaml(shine)
 	ocaml(soundtouch)
 	ocaml(speex)
 	ocaml(taglib)
@@ -55,11 +57,11 @@ DEPEND="ocaml(ao)
 	ocaml(yojson)
 "
 
-PKG_NAMES="${PN} liguidsoap"
+PKG_NAMES="${NAME} liguidsoap"
 liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
                      usr/share/doc/ usr/share/man/man1/liquidsoap.* var/"
 liguidsoap_SUMMARY="GUI for the Liquidsoap audio stream generator"
-liguidsoap_REQUIRES=${PN}
+liguidsoap_REQUIRES=${NAME}
 liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
                      usr/share/man/man1/liguidsoap.*"
 
@@ -70,13 +72,14 @@ src_compile() {
 	cd ${B}
 	cygconf --with-group=`id -ng` --with-user=`id -nu`
 	cygmake -j1
+	make -C doc html -k || true
 }
 
 USE_DESTDIR=no
 
 src_install() {
 	cd ${B}
-	cyginstall -j1 DISTDIR=${PN}
+	cyginstall -j1 DISTDIR=${NAME}
 
 	python_optimize
 
