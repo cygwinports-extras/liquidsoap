@@ -2,7 +2,7 @@ inherit python ocaml
 
 NAME="liquidsoap"
 VERSION=1.1.1
-RELEASE=1
+RELEASE=2
 CATEGORY="Audio Net"
 SUMMARY="Audio stream generator"
 DESCRIPTION="Liquidsoap is the audio stream generator of the Savonet project,
