@@ -1,0 +1,36 @@
+--- origsrc/liquidsoap-1.2.1-full/PACKAGES.default	2017-03-30 22:13:25.717266900 -0500
++++ src/liquidsoap-1.2.1-full/PACKAGES.default	2017-03-30 22:13:16.894139600 -0500
+@@ -53,6 +53,6 @@
+ # LAME is for MP3 encoding.
+-ocaml-lame
++#ocaml-lame
+ 
+ # SHINE is for fixed-point MP3 encoding.
+-ocaml-shine
++#ocaml-shine
+ 
+@@ -86,3 +86,3 @@
+ # VOAACENC is for AAC encoding.
+-ocaml-voaacenc
++#ocaml-voaacenc
+ 
+@@ -92,3 +92,3 @@
+ # FAAD for AAC decoding.
+-ocaml-faad
++#ocaml-faad
+ 
+@@ -119,3 +119,3 @@
+ # It is the recommended module to use with video
+-ocaml-gavl
++#ocaml-gavl
+ 
+@@ -123,3 +123,3 @@
+ # and to many formats.
+-ocaml-ffmpeg
++#ocaml-ffmpeg
+ 
+@@ -148,3 +148,3 @@
+ # such as faders
+-ocaml-lo
++#ocaml-lo
+ 

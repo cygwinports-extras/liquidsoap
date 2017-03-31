@@ -1,8 +1,8 @@
-inherit python ocaml
+inherit python2 ocaml
 
 NAME="liquidsoap"
-VERSION=1.1.1
-RELEASE=4
+VERSION=1.2.1
+RELEASE=1
 CATEGORY="Audio Net"
 SUMMARY="Audio stream generator"
 DESCRIPTION="Liquidsoap is the audio stream generator of the Savonet project,
@@ -12,9 +12,18 @@ powerful and flexible way. Allowing arbitrarily deep-nested composition of
 streams, it gives you more power than you need for creating an original
 netradio. But liquidsoap is still very light and easy to use, in the Unix
 tradition of simple strong components working together."
-HOMEPAGE="http://savonet.sourceforge.net/"
-SRC_URI="mirror://sourceforge/savonet/${NAME}-${VERSION}.tar.bz2"
-PATCH_URI="1.1.1-static.patch"
+HOMEPAGE="http://liquidsoap.fm/"
+#SRC_URI="https://github.com/savonet/${NAME}/releases/download/${VERSION}/${NAME}-${VERSION}.tar.bz2"
+SRC_URI="https://github.com/savonet/${NAME}/releases/download/${VERSION}/${NAME}-${VERSION}-full.tar.gz"
+SRC_DIR="liquidsoap-${VERSION}-full"
+PATCH_URI="
+	1.2.1-lastfm-fixes.patch
+	1.2.1-taglib-fixes.patch
+	1.2.1-packages-missing.patch
+"
+if ! defined FREEWORLD; then
+PATCH_URI+=" 1.2.1-packages-distro.patch"
+fi
 
 REQUIRES="faad flac libnotify mplayer musepack wget xosd"
 
@@ -57,22 +66,46 @@ DEPEND="ocaml(ao)
 	ocaml(yojson)
 "
 
-PKG_NAMES="${NAME} liguidsoap"
-liquidsoap_CONTENTS="etc/ usr/bin/liquidsoap.exe usr/lib/liquidsoap/
-                     usr/share/doc/ usr/share/man/man1/liquidsoap.* var/"
+PKG_NAMES="${NAME} ${NAME}-doc liguidsoap"
+liquidsoap_CONTENTS="
+	etc/
+	usr/bin/liquidsoap.exe
+	usr/lib/liquidsoap/
+	usr/share/doc/${NAME}/[A-Z]*
+	usr/share/man/man1/liquidsoap.*
+	var/
+"
+liquidsoap_doc_CONTENTS="
+	usr/share/doc/${NAME}/*/
+"
 liguidsoap_SUMMARY="GUI for the Liquidsoap audio stream generator"
 liguidsoap_REQUIRES=${NAME}
-liguidsoap_CONTENTS="usr/bin/liguidsoap ${PYTHON_SITELIB#/}
-                     usr/share/man/man1/liguidsoap.*"
+liguidsoap_CONTENTS="
+	usr/bin/liguidsoap
+	${PYTHON2_SITELIB#/}
+	usr/share/man/man1/liguidsoap.*
+"
 
-DIFF_EXCLUDES="configure configure.ml harbor*.ml liq_sockets.ml SVN.ml"
+DIFF_EXCLUDES="aclocal.m4 configure configure.ml harbor*.ml liq_sockets.ml SVN.ml"
 
 src_compile() {
+	cd ${S}
+	for d in ocaml-lastfm ocaml-taglib
+	do
+		pushd $d-*
+		ACLOCAL_PATH="m4"
+		cygautoreconf
+		popd
+	done
 	lndirs
 	cd ${B}
-	cygconf --with-group=`id -ng` --with-user=`id -nu`
-	cygmake -j1
-	make -C doc html -k || true
+	ln -sf PACKAGES.default PACKAGES
+	# toplevel configure is not autoconf-based, doesn't handle --srcdir
+	./configure --prefix=/usr \
+		--with-default-font=/usr/share/fonts/dejavu/DejaVuSans.ttf \
+		--with-group=`id -ng` --with-user=`id -nu` \
+		--cache-file ${B}/config.cache
+	cygmake -j1 all doc
 }
 
 USE_DESTDIR=no
@@ -80,8 +113,6 @@ USE_DESTDIR=no
 src_install() {
 	cd ${B}
 	cyginstall -j1 DISTDIR=${NAME}
-
-	python_optimize
 
 	keepdir /var/{log,run}/liquidsoap
 }

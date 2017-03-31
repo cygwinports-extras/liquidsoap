@@ -1,0 +1,32 @@
+--- origsrc/liquidsoap-1.2.1-full/PACKAGES.default	2016-07-02 10:20:32.000000000 -0500
++++ src/liquidsoap-1.2.1-full/PACKAGES.default	2017-03-30 21:36:21.160598400 -0500
+@@ -27,3 +27,3 @@
+ # ALSA is only for LINUX, and is sometimes not working.
+-ocaml-alsa
++#ocaml-alsa
+ 
+@@ -35,3 +35,3 @@
+ # and easy communication between audio applications.
+-ocaml-bjack
++#ocaml-bjack
+ 
+@@ -59,3 +59,3 @@
+ # AACPLUS is for AAC+ encoding.
+-ocaml-aacplus
++#ocaml-aacplus
+ 
+@@ -89,3 +89,3 @@
+ # FDK-AAC is for AAC and AAC+ encoding
+-ocaml-fdkaac
++#ocaml-fdkaac
+ 
+@@ -126,3 +126,3 @@
+ # Frei0r is a minimalistic plugin API for video sources and filters.
+-ocaml-frei0r
++#ocaml-frei0r
+ 
+@@ -133,3 +133,3 @@
+ # DSSI is a standard for synthesizer plugins
+-ocaml-dssi
++#ocaml-dssi
+ 

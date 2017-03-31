@@ -1,0 +1,30 @@
+--- origsrc/liquidsoap-1.2.1-full/ocaml-taglib-0.3.2/configure.ac	2015-08-03 11:40:22.000000000 -0500
++++ src/liquidsoap-1.2.1-full/ocaml-taglib-0.3.2/configure.ac	2017-03-30 23:18:41.282253300 -0500
+@@ -12,13 +12,6 @@ CPPFLAGS="$CPPFLAGS -I .."
+ PKG_PROG_PKG_CONFIG()
+ PKG_CONFIG_CHECK_MODULE([taglib],[1.6])
+ 
+-# Need to add -lstdc++
+-LIBS="$LIBS stdc++"
+-
+-case "$host" in
+-   *-mingw*) LIBS="$LIBS pthread gcc_s";
+-esac
+-
+ # Now testing for recent classes:
+ AC_CPP_CHECK_CLASS([tag],[tpropertymap.h],[TagLib::PropertyMap],[HAVE_PROPERTIES])
+ AC_CPP_CHECK_CLASS([tag],[wavpackfile.h],[TagLib::WavPack::File],[HAVE_WAVPACK])
+@@ -27,6 +20,13 @@ AC_CPP_CHECK_CLASS([tag],[mp4file.h],[Ta
+ AC_CPP_CHECK_CLASS([tag],[asffile.h],[TagLib::ASF::File],[HAVE_ASF])
+ AC_CPP_CHECK_CLASS([tag],[trueaudiofile.h],[TagLib::TrueAudio::File],[HAVE_TRUEAUDIO])
+ 
++case "$host" in
++   *-mingw*) LIBS="$LIBS pthread gcc_s";
++esac
++
++# Need to add -lstdc++
++LIBS="$LIBS stdc++"
++
+ # substitutions to perform
+ AC_SUBST(VERSION)
+ AC_SUBST(INC)
